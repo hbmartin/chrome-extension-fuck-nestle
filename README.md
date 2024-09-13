@@ -23,6 +23,8 @@ _"A local favorite" in that locals want us to [stop illegally stealing water](ht
 5. Click on `Load unpacked` button in the upper left corner.
 6. Select the `chrome-extension-fuck-nestle-main` unzipped directory from step #2.
 
+Please report any missing brands or other issues [here](https://github.com/hbmartin/chrome-extension-fuck-nestle/issues) or on [reddit](https://www.reddit.com/r/FuckNestle/comments/1fg4fn9/a_chrome_extension_to_warn_you_before_buying_a/)
+
 ## Attribution
 
 Brand list sourced from [https://www.fucknestle.art/](https://www.fucknestle.art/) and the BlueTriton site. Many thanks to [Zach Jordan](https://www.zachjordan.io/).

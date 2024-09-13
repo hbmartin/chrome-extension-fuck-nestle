@@ -2,18 +2,18 @@
   "name": "Fuck Nestle",
   "description": "Warns before buying Nestle products.",
   "homepage_url": "https://github.com/hbmartin/chrome-extension-fuck-nestle",
-  "version": "3.1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
   "icons": {
-    "16": "assets/icons/icon16.png",
-    "32": "assets/icons/icon32.png",
-    "64": "assets/icons/icon64.png",
+    "48": "assets/icons/icon48.png",
     "128": "assets/icons/icon128.png"
   },
   "content_scripts": [
     {
-      "run_at" : "document_idle",
-      "js": ["src/content/after.js"],
+      "run_at": "document_idle",
+      "js": [
+        "src/content/after.js"
+      ],
       "matches": [
         "https://*.amazon.com/*"
       ]
@@ -21,10 +21,14 @@
   ],
   "web_accessible_resources": [
     {
-        "matches": ["<all_urls>"],
-        "resources": ["src/content/brands.json"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "src/content/brands.json"
+      ]
     }
-],
+  ],
   "permissions": [
     "scripting"
   ],

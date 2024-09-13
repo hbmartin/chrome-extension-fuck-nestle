@@ -1,1 +1,11 @@
-{"private":true,"devDependencies":{"@eslint/js":"^9.10.0","@types/chrome":"^0.0.270","@types/eslint__js":"^8.42.3","eslint":"^9.10.0","globals":"^15.9.0","prettier":"3.3.3"}}
+{
+    "private": true,
+    "devDependencies": {
+        "@eslint/js": "^9.10.0",
+        "@types/chrome": "^0.0.270",
+        "@types/eslint__js": "^8.42.3",
+        "eslint": "^9.10.0",
+        "globals": "^15.9.0",
+        "prettier": "3.3.3"
+    }
+}

@@ -1,6 +1,6 @@
 # Fuck Nestlé Chrome Extension
 
-[![PR Checks](https://github.com/hbmartin/chrome-extension-fuck-nestle/actions/workflows/pre-merge.yml/badge.svg)](https://github.com/hbmartin/chrome-extension-fuck-nestle/actions/workflows/pre-merge.yml)
+[![Linting](https://github.com/hbmartin/chrome-extension-fuck-nestle/actions/workflows/linting.yml/badge.svg)](https://github.com/hbmartin/chrome-extension-fuck-nestle/actions/workflows/linting.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/hbmartin/chrome-extension-fuck-nestle/badge)](https://www.codefactor.io/repository/github/hbmartin/chrome-extension-fuck-nestle)
 [![Maintainability](https://api.codeclimate.com/v1/badges/81b8f97e6ae73dd33ea1/maintainability)](https://codeclimate.com/github/hbmartin/chrome-extension-fuck-nestle/maintainability)
 
@@ -18,9 +18,9 @@ _"A local favorite" in that locals want us to [stop illegally stealing water](ht
 
 1. [Click here](https://github.com/hbmartin/chrome-extension-fuck-nestle/archive/refs/heads/main.zip) to download this Chrome extension.
 2. Open the downloaded zip file.
-3. In Chrome (or other Chrome-based browser) go to [chrome://extensions](chrome://extensions).
-4. Enable "Developer mode" by toggling the switch in the top right corner.
-5. Click on "Load unpacked" button in the upper left corner.
+3. In Chrome (or other Chrome-based browser) go to chrome://extensions (copy and paste into URL)
+4. Enable `Developer mode` by toggling the switch in the top right corner.
+5. Click on `Load unpacked` button in the upper left corner.
 6. Select the `chrome-extension-fuck-nestle-main` unzipped directory from step #2.
 
 ## Attribution

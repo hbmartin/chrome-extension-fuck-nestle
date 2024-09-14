@@ -38,6 +38,16 @@
       "matches": [
         "https://*.target.com/*"
       ]
+    },
+    {
+      "run_at": "document_idle",
+      "js": [
+        "src/content/warning.js",
+        "src/content/walmart.js"
+      ],
+      "matches": [
+        "https://*.walmart.com/*"
+      ]
     }
   ],
   "web_accessible_resources": [
@@ -56,6 +66,7 @@
   "host_permissions": [
     "https://*.amazon.com/*",
     "https://*.instacart.com/*",
-    "https://*.target.com/*"
+    "https://*.target.com/*",
+    "https://*.walmart.com/*"
   ]
 }

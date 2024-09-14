@@ -12,14 +12,15 @@ This extension warns you before buying a product from one of Nestlé's many bran
 - Amazon.com
 - Instacart.com
 - Target.com
+- WalMart.com
 
 <picture>
   <img alt="Screenshot of Nestle product on Amazon.com" src="assets/screenshots/arrowhead.jpg">
 </picture>
 
-_"A local favorite" in that locals want us to [stop illegally stealing water](https://www.latimes.com/environment/story/2024-08-07/arrowhead-bottled-water-permit)._
+_"A local favorite" in that locals want Nestlé to [stop ignoring court orders to cease stealing water](https://www.latimes.com/environment/story/2024-08-07/arrowhead-bottled-water-permit)._
 
-## How to install
+## How to Install
 
 1. [Click here](https://github.com/hbmartin/chrome-extension-fuck-nestle/archive/refs/heads/main.zip) to download this Chrome extension.
 2. Open the downloaded zip file.

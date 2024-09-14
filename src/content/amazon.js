@@ -1,8 +1,8 @@
 "use strict";
 
 function getElementText(fallbackIds) {
-  for (let i = 0; i < fallbackIds.length; i++) {
-    const element = document.getElementById(fallbackIds[i]);
+  for (const id of fallbackIds) {
+    const element = document.getElementById(id);
     if (element) {
       return element.textContent.toLowerCase();
     }

@@ -9,20 +9,6 @@ function getElementText(fallbackIds) {
   }
 }
 
-function showWarning(ppd, brand) {
-  const warningElement = document.createElement("div");
-  warningElement.style.cssText = `
-    background-color: #ffcccc;
-    border: 2px solid #ff0000;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
-  `;
-  warningElement.innerHTML = `⛔️ This may be a Nestlé (${brand}) product. ⛔️<br /><a href="https://www.fucknestle.art/">https://www.fucknestle.art/</a>`;
-  ppd.insertBefore(warningElement, ppd.firstChild);
-}
-
 (function () {
   const ppd = document.getElementById("ppd");
   if (ppd) {
@@ -36,7 +22,7 @@ function showWarning(ppd, brand) {
         );
         if (foundBrand) {
           console.log(`Found brand: ${foundBrand}`);
-          showWarning(ppd, foundBrand);
+          showNestleWarning(ppd, foundBrand);
         } else {
           const brandsStrict = content["brands_strict"];
           const title = getElementText([
@@ -56,7 +42,7 @@ function showWarning(ppd, brand) {
             byline.includes(brand.toLowerCase()),
           );
           if (foundTitleBrand || foundBylineBrand) {
-            showWarning(ppd, foundTitleBrand || foundBylineBrand);
+            showNestleWarning(ppd, foundTitleBrand || foundBylineBrand);
           }
         }
       });

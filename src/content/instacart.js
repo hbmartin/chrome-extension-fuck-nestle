@@ -2,21 +2,6 @@
 
 const observer = new MutationObserver(detectAndWarn);
 
-function showWarning(ppd, brand) {
-  const warningElement = document.createElement("div");
-  warningElement.id = "fuck-nestle-warning";
-  warningElement.style.cssText = `
-    background-color: #ffcccc;
-    border: 2px solid #ff0000;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
-  `;
-  warningElement.innerHTML = `⛔️ This may be a Nestlé (${brand}) product. ⛔️<br /><a href="https://www.fucknestle.art/">https://www.fucknestle.art/</a>`;
-  ppd.insertBefore(warningElement, ppd.firstChild);
-}
-
 function detectAndWarn() {
   observer.disconnect();
   if (document.getElementById("fuck-nestle-warning")) {
@@ -41,7 +26,7 @@ function detectAndWarn() {
         );
         if (foundBrand) {
           console.log(`Found brand: ${foundBrand}`);
-          showWarning(item_details, foundBrand);
+          showNestleWarning(item_details, foundBrand);
         } else {
           const brandsStrict = content["brands_strict"];
           const h2s = ppd.getElementsByTagName("h2");
@@ -51,7 +36,7 @@ function detectAndWarn() {
               title.includes(brand.toLowerCase()),
             );
             if (foundTitleBrand) {
-              showWarning(item_details, foundTitleBrand);
+              showNestleWarning(item_details, foundTitleBrand);
             }
           }
         }

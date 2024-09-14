@@ -4,9 +4,9 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/hbmartin/chrome-extension-fuck-nestle/badge)](https://www.codefactor.io/repository/github/hbmartin/chrome-extension-fuck-nestle)
 [![Maintainability](https://api.codeclimate.com/v1/badges/81b8f97e6ae73dd33ea1/maintainability)](https://codeclimate.com/github/hbmartin/chrome-extension-fuck-nestle/maintainability)
 
-This extension warns you before buying a product from one of Nestlé's many brands.
-
 <img src="assets/icons/icon48.png" alt="Icon" align="right">
+
+This extension warns you before buying a product from one of Nestlé's many brands. Nestlé's business practices destroy lives, destabilize communities, and threaten our shared environment.
 
 ## Supported Sites
 

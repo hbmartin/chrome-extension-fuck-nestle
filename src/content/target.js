@@ -1,19 +1,5 @@
 "use strict";
 
-function showWarning(ppd, brand) {
-  const warningElement = document.createElement("div");
-  warningElement.style.cssText = `
-    background-color: #ffcccc;
-    border: 2px solid #ff0000;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
-  `;
-  warningElement.innerHTML = `⛔️ This may be a Nestlé (${brand}) product. ⛔️<br /><a href="https://www.fucknestle.art/">https://www.fucknestle.art/</a>`;
-  ppd.insertBefore(warningElement, ppd.firstChild);
-}
-
 (function () {
   const ppd = document.getElementsByTagName("main")[0].children[0].children[0];
   if (ppd) {
@@ -27,17 +13,17 @@ function showWarning(ppd, brand) {
         );
         if (foundBrand) {
           console.log(`Found brand: ${foundBrand}`);
-          showWarning(ppd, foundBrand);
+          showNestleWarning(ppd, foundBrand);
         } else {
           const brandsStrict = content["brands_strict"];
           const h1s = ppd.getElementsByTagName("h1");
           if (h1s.length > 0) {
-            const title = h1s[0].innerText.toLowerCase()
+            const title = h1s[0].innerText.toLowerCase();
             const foundTitleBrand = brandsStrict.find((brand) =>
               title.includes(brand.toLowerCase()),
             );
             if (foundTitleBrand) {
-              showWarning(ppd, foundTitleBrand);
+              showNestleWarning(ppd, foundTitleBrand);
             }
           }
         }

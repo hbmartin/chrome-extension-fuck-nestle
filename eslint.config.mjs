@@ -7,7 +7,8 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.webextensions
+        ...globals.webextensions,
+        showNestleWarning: 'readonly'
       }
     },
     rules: {

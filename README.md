@@ -2,7 +2,6 @@
 
 [![Linting](https://github.com/hbmartin/chrome-extension-fuck-nestle/actions/workflows/linting.yml/badge.svg)](https://github.com/hbmartin/chrome-extension-fuck-nestle/actions/workflows/linting.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/hbmartin/chrome-extension-fuck-nestle/badge)](https://www.codefactor.io/repository/github/hbmartin/chrome-extension-fuck-nestle)
-[![Maintainability](https://api.codeclimate.com/v1/badges/81b8f97e6ae73dd33ea1/maintainability)](https://codeclimate.com/github/hbmartin/chrome-extension-fuck-nestle/maintainability)
 
 <img src="assets/icons/icon48.png" alt="Icon" align="right">
 

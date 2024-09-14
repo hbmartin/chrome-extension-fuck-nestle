@@ -7,12 +7,12 @@
 
 This extension warns you before buying a product from one of Nestlé's many brands. Nestlé's business practices destroy lives, destabilize communities, and threaten our shared environment.
 
-## "Supported" Sites
+## Works On
 
-- Amazon.com
-- Instacart.com
-- Target.com
-- WalMart.com
+- amazon.com
+- instacart.com
+- target.com
+- walmart.com
 
 <picture>
   <img alt="Screenshot of Nestle product on Amazon.com" src="assets/screenshots/arrowhead.jpg">

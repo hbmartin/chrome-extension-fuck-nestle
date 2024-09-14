@@ -26,6 +26,15 @@
       "matches": [
         "https://*.instacart.com/*"
       ]
+    },
+    {
+      "run_at": "document_idle",
+      "js": [
+        "src/content/target.js"
+      ],
+      "matches": [
+        "https://*.target.com/*"
+      ]
     }
   ],
   "web_accessible_resources": [
@@ -43,6 +52,7 @@
   ],
   "host_permissions": [
     "https://*.amazon.com/*",
-    "https://*.instacart.com/*"
+    "https://*.instacart.com/*",
+    "https://*.target.com/*"
   ]
 }

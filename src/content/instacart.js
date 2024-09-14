@@ -1,16 +1,10 @@
 "use strict";
 
-function getElementText(fallbackIds) {
-  for (let i = 0; i < fallbackIds.length; i++) {
-    const element = document.getElementById(fallbackIds[i]);
-    if (element) {
-      return element.textContent.toLowerCase();
-    }
-  }
-}
+const observer = new MutationObserver(detectAndWarn);
 
 function showWarning(ppd, brand) {
   const warningElement = document.createElement("div");
+  warningElement.id = "fuck-nestle-warning";
   warningElement.style.cssText = `
     background-color: #ffcccc;
     border: 2px solid #ff0000;
@@ -23,8 +17,17 @@ function showWarning(ppd, brand) {
   ppd.insertBefore(warningElement, ppd.firstChild);
 }
 
-(function () {
-  const ppd = document.getElementById("ppd");
+function detectAndWarn() {
+  observer.disconnect();
+  if (document.getElementById("fuck-nestle-warning")) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+    return;
+  }
+
+  const ppd = document.getElementById("item_details");
   if (ppd) {
     fetch(chrome.runtime.getURL("src/content/brands.json"))
       .then((resp) => resp.json())
@@ -40,29 +43,33 @@ function showWarning(ppd, brand) {
           showWarning(ppd, foundBrand);
         } else {
           const brandsStrict = content["brands_strict"];
-          console.log(brandsStrict);
-          const title = getElementText([
-            "title",
-            "productTitle",
-            "titleSection",
-            "title_feature_div",
-          ]);
-          const byline = getElementText([
-            "bylineInfo",
-            "bylineInfo_feature_div",
-          ]);
-          const foundTitleBrand = brandsStrict.find((brand) =>
-            title.includes(brand.toLowerCase()),
-          );
-          const foundBylineBrand = brandsStrict.find((brand) =>
-            byline.includes(brand.toLowerCase()),
-          );
-          if (foundTitleBrand || foundBylineBrand) {
-            showWarning(ppd, foundTitleBrand || foundBylineBrand);
+          const h2s = ppd.getElementsByTagName("h2");
+          if (h2s.length > 0) {
+            const title = h2s[0].innerText.toLowerCase();
+            const foundTitleBrand = brandsStrict.find((brand) =>
+              title.includes(brand.toLowerCase()),
+            );
+            if (foundTitleBrand) {
+              showWarning(ppd, foundTitleBrand);
+            }
           }
         }
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
       });
   } else {
-    console.log("Element with id 'ppd' not found.");
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
   }
+}
+
+(function () {
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
 })();

@@ -12,10 +12,19 @@
     {
       "run_at": "document_idle",
       "js": [
-        "src/content/after.js"
+        "src/content/amazon.js"
       ],
       "matches": [
         "https://*.amazon.com/*"
+      ]
+    },
+    {
+      "run_at": "document_end",
+      "js": [
+        "src/content/instacart.js"
+      ],
+      "matches": [
+        "https://*.instacart.com/*"
       ]
     }
   ],
@@ -33,6 +42,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://*.amazon.com/*"
+    "https://*.amazon.com/*",
+    "https://*.instacart.com/*"
   ]
 }

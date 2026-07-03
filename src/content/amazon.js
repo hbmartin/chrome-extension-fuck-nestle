@@ -1,52 +1,18 @@
 "use strict";
 
-function getElementText(fallbackIds) {
-  for (const id of fallbackIds) {
-    const element = document.getElementById(id);
-    if (element) {
-      return element.textContent.toLowerCase();
-    }
-  }
-}
-
 (function () {
-  const ppd = document.getElementById("ppd");
-  if (ppd) {
-    fetch(chrome.runtime.getURL("src/content/brands.json"))
-      .then((resp) => resp.json())
-      .then((content) => {
-        const brands = content["brands"];
-        const ppdText = ppd.innerText.toLowerCase();
-        const foundBrand = brands.find((brand) =>
-          ppdText.includes(brand.toLowerCase()),
-        );
-        if (foundBrand) {
-          console.log(`Found brand: ${foundBrand}`);
-          showNestleWarning(ppd, foundBrand);
-        } else {
-          const brandsStrict = content["brands_strict"];
-          const title = getElementText([
-            "title",
-            "productTitle",
-            "titleSection",
-            "title_feature_div",
-          ]);
-          const byline = getElementText([
-            "bylineInfo",
-            "bylineInfo_feature_div",
-          ]);
-          const foundTitleBrand = brandsStrict.find((brand) =>
-            title.includes(brand.toLowerCase()),
-          );
-          const foundBylineBrand = brandsStrict.find((brand) =>
-            byline.includes(brand.toLowerCase()),
-          );
-          if (foundTitleBrand || foundBylineBrand) {
-            showNestleWarning(ppd, foundTitleBrand || foundBylineBrand);
-          }
-        }
-      });
-  } else {
-    console.log("Element with id 'ppd' not found.");
+  const container = document.getElementById("ppd");
+  if (!container) {
+    console.log("Fuck Nestle: no product container found on this page.");
+    return;
   }
+  scanAndWarn(container, [
+    getTextByIds([
+      "title",
+      "productTitle",
+      "titleSection",
+      "title_feature_div",
+    ]),
+    getTextByIds(["bylineInfo", "bylineInfo_feature_div"]),
+  ]);
 })();

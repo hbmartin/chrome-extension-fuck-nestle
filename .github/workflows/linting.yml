@@ -21,3 +21,5 @@ jobs:
       run: npx eslint src
     - name: Run Prettier
       run: npx prettier -c src
+    - name: Run tests
+      run: npm test

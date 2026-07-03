@@ -2,7 +2,7 @@
   "name": "Fuck Nestle",
   "description": "Warns before buying Nestle products.",
   "homepage_url": "https://github.com/hbmartin/chrome-extension-fuck-nestle",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 3,
   "icons": {
     "48": "assets/icons/icon48.png",
@@ -13,6 +13,8 @@
       "run_at": "document_idle",
       "js": [
         "src/content/warning.js",
+        "src/content/matcher.js",
+        "src/content/scan.js",
         "src/content/amazon.js"
       ],
       "matches": [
@@ -23,6 +25,8 @@
       "run_at": "document_end",
       "js": [
         "src/content/warning.js",
+        "src/content/matcher.js",
+        "src/content/scan.js",
         "src/content/instacart.js"
       ],
       "matches": [
@@ -33,6 +37,8 @@
       "run_at": "document_idle",
       "js": [
         "src/content/warning.js",
+        "src/content/matcher.js",
+        "src/content/scan.js",
         "src/content/target.js"
       ],
       "matches": [
@@ -43,6 +49,8 @@
       "run_at": "document_idle",
       "js": [
         "src/content/warning.js",
+        "src/content/matcher.js",
+        "src/content/scan.js",
         "src/content/walmart.js"
       ],
       "matches": [
@@ -53,7 +61,10 @@
   "web_accessible_resources": [
     {
       "matches": [
-        "<all_urls>"
+        "https://*.amazon.com/*",
+        "https://*.instacart.com/*",
+        "https://*.target.com/*",
+        "https://*.walmart.com/*"
       ],
       "resources": [
         "src/content/brands.json"
@@ -61,7 +72,7 @@
     }
   ],
   "permissions": [
-    "scripting"
+    "storage"
   ],
   "host_permissions": [
     "https://*.amazon.com/*",

@@ -1,6 +1,14 @@
-// eslint-disable-next-line no-unused-vars
+"use strict";
+
+/* exported showNestleWarning */
+
 function showNestleWarning(ppd, brand) {
+  if (document.getElementById("fuck-nestle-warning")) {
+    return;
+  }
   const warningElement = document.createElement("div");
+  warningElement.id = "fuck-nestle-warning";
+  warningElement.setAttribute("role", "alert");
   warningElement.style.cssText = `
       background-color: #ffcccc;
       border: 2px solid #ff0000;

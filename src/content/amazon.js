@@ -7,12 +7,15 @@
     return;
   }
   scanAndWarn(container, [
-    getTextByIds([
-      "title",
-      "productTitle",
-      "titleSection",
-      "title_feature_div",
-    ]),
-    getTextByIds(["bylineInfo", "bylineInfo_feature_div"]),
-  ]);
+    () =>
+      getTextByIds([
+        "title",
+        "productTitle",
+        "titleSection",
+        "title_feature_div",
+      ]),
+    () => getTextByIds(["bylineInfo", "bylineInfo_feature_div"]),
+  ]).catch((error) => {
+    console.error("Fuck Nestle: brand scan failed.", error);
+  });
 })();

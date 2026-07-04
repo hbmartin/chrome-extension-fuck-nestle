@@ -1,0 +1,21 @@
+rules:
+  - id: content-script-scanandwarn-must-handle-rejection
+    languages:
+      - javascript
+    severity: WARNING
+    message: "scanAndWarn returns a Promise; handle rejections locally in content scripts."
+    paths:
+      include:
+        - /src/content/**/*.js
+    patterns:
+      - pattern: scanAndWarn(...)
+      - pattern-not-inside: |
+          scanAndWarn(...).catch(...)
+      - pattern-not-inside: |
+          try {
+            ...
+            await scanAndWarn(...)
+            ...
+          } catch ($ERROR) {
+            ...
+          }

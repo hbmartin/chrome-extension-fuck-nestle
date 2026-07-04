@@ -41,6 +41,15 @@ describe("matchBrand", () => {
     );
   });
 
+  it("matches canonically equivalent accented text", () => {
+    expect(matchBrand("Nescafe\u0301 Gold Instant Coffee", ["Nescafé"])).toBe(
+      "Nescafé",
+    );
+    expect(matchBrand("Nescafé Gold Instant Coffee", ["Nescafe\u0301"])).toBe(
+      "Nescafe\u0301",
+    );
+  });
+
   it("returns undefined for missing text or brand list", () => {
     expect(matchBrand(undefined, ["Boost"])).toBeUndefined();
     expect(matchBrand("", ["Boost"])).toBeUndefined();

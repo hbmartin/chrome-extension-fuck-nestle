@@ -1,16 +1,18 @@
 {
-    "private": true,
-    "scripts": {
-        "lint": "eslint src && prettier -c src",
-        "test": "vitest run"
-    },
-    "devDependencies": {
-        "@eslint/js": "^9.10.0",
-        "@types/chrome": "^0.0.270",
-        "@types/eslint__js": "^8.42.3",
-        "eslint": "^9.10.0",
-        "globals": "^15.9.0",
-        "prettier": "3.3.3",
-        "vitest": "^4.1.9"
-    }
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "format": "prettier -w src tests eslint.config.mjs vitest.config.mjs package.json manifest.json --ignore-unknown",
+    "lint": "eslint . && prettier -c src tests eslint.config.mjs vitest.config.mjs package.json manifest.json --ignore-unknown",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/chrome": "^0.2.2",
+    "@types/eslint__js": "^9.14.0",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "prettier": "3.9.4",
+    "vitest": "^4.1.9"
+  }
 }

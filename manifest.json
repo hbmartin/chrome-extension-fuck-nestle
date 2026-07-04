@@ -17,9 +17,7 @@
         "src/content/scan.js",
         "src/content/amazon.js"
       ],
-      "matches": [
-        "https://*.amazon.com/*"
-      ]
+      "matches": ["https://*.amazon.com/*"]
     },
     {
       "run_at": "document_end",
@@ -29,9 +27,7 @@
         "src/content/scan.js",
         "src/content/instacart.js"
       ],
-      "matches": [
-        "https://*.instacart.com/*"
-      ]
+      "matches": ["https://*.instacart.com/*"]
     },
     {
       "run_at": "document_idle",
@@ -41,9 +37,7 @@
         "src/content/scan.js",
         "src/content/target.js"
       ],
-      "matches": [
-        "https://*.target.com/*"
-      ]
+      "matches": ["https://*.target.com/*"]
     },
     {
       "run_at": "document_idle",
@@ -53,9 +47,7 @@
         "src/content/scan.js",
         "src/content/walmart.js"
       ],
-      "matches": [
-        "https://*.walmart.com/*"
-      ]
+      "matches": ["https://*.walmart.com/*"]
     }
   ],
   "web_accessible_resources": [
@@ -66,14 +58,10 @@
         "https://*.target.com/*",
         "https://*.walmart.com/*"
       ],
-      "resources": [
-        "src/content/brands.json"
-      ]
+      "resources": ["src/content/brands.json"]
     }
   ],
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage"],
   "host_permissions": [
     "https://*.amazon.com/*",
     "https://*.instacart.com/*",

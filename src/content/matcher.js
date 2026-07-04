@@ -4,6 +4,10 @@
 
 const brandPatterns = new Map();
 
+function normalizeMatchText(text) {
+  return text.normalize("NFC").toLowerCase();
+}
+
 function escapeRegExp(text) {
   return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -11,13 +15,14 @@ function escapeRegExp(text) {
 // Matches the brand as a whole word (not surrounded by letters or digits),
 // so generic entries like "Boost" or "Nuts" don't flag "booster" or "doughnuts".
 function brandPattern(brand) {
-  let pattern = brandPatterns.get(brand);
+  const normalizedBrand = normalizeMatchText(brand);
+  let pattern = brandPatterns.get(normalizedBrand);
   if (!pattern) {
     pattern = new RegExp(
-      `(?<![\\p{L}\\p{N}])${escapeRegExp(brand.toLowerCase())}(?![\\p{L}\\p{N}])`,
+      `(?<![\\p{L}\\p{N}])${escapeRegExp(normalizedBrand)}(?![\\p{L}\\p{N}])`,
       "u",
     );
-    brandPatterns.set(brand, pattern);
+    brandPatterns.set(normalizedBrand, pattern);
   }
   return pattern;
 }
@@ -26,8 +31,8 @@ function matchBrand(text, brandList) {
   if (!text || !brandList) {
     return undefined;
   }
-  const loweredText = text.toLowerCase();
-  return brandList.find((brand) => brandPattern(brand).test(loweredText));
+  const normalizedText = normalizeMatchText(text);
+  return brandList.find((brand) => brandPattern(brand).test(normalizedText));
 }
 
 // Distinctive brand names ("brands") are matched against the whole product

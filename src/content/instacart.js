@@ -13,13 +13,13 @@
       return;
     }
     scanning = true;
-    scanAndWarn(
-      container,
-      [getHeadingText(container, "h2")],
-      itemDetails,
-    ).finally(() => {
-      scanning = false;
-    });
+    scanAndWarn(container, [() => getHeadingText(container, "h2")], itemDetails)
+      .catch((error) => {
+        console.error("Fuck Nestle: brand scan failed.", error);
+      })
+      .finally(() => {
+        scanning = false;
+      });
   }
 
   detectAndWarn();

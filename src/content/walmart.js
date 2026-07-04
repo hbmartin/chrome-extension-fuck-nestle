@@ -27,5 +27,9 @@
     console.log("Fuck Nestle: no product container found on this page.");
     return;
   }
-  scanAndWarn(container, [getHeadingText(container, "h1")]);
+  scanAndWarn(container, [() => getHeadingText(container, "h1")]).catch(
+    (error) => {
+      console.error("Fuck Nestle: brand scan failed.", error);
+    },
+  );
 })();

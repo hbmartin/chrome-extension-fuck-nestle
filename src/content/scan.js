@@ -41,15 +41,21 @@ function getBrandData() {
   return brandDataPromise;
 }
 
-// Scans the container's text (and the given title/byline texts against the
-// stricter list) and shows the warning banner on a match. The banner is
-// inserted into warningTarget when given, otherwise into the container.
+function resolveTitleTexts(titleTexts) {
+  return (titleTexts || []).map((titleText) =>
+    typeof titleText === "function" ? titleText() : titleText,
+  );
+}
+
+// Scans the container's text and the given title/byline text values or getters
+// against the stricter list. The banner is inserted into warningTarget when
+// given, otherwise into the container.
 async function scanAndWarn(container, titleTexts, warningTarget) {
   const brandData = await getBrandData();
   const foundBrand = findNestleBrand(
     brandData,
     container.innerText,
-    titleTexts,
+    resolveTitleTexts(titleTexts),
   );
   if (foundBrand) {
     console.log(`Found Nestlé brand: ${foundBrand}`);
